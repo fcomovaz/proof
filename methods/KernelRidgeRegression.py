@@ -26,7 +26,6 @@ def createKRRModel(X, y, verbose=False):
     X_test_scaled = scaler.transform(X_test)
 
     # Initialize the Kernel Ridge Regression model with a radial basis function (RBF) kernel
-    # You can experiment with different kernels and hyperparameters
     model = KernelRidge(alpha=0.4, kernel="rbf", gamma=0.056)
 
     # Fit the model to the training data

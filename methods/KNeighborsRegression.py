@@ -25,7 +25,7 @@ def createKNNModel(X, y, verbose=False):
     # Creating the KNN regression model
     knn_model = KNeighborsRegressor(
         n_neighbors=4
-    )  # Adjust the number of neighbors as needed
+    )
 
     # Training the model
     knn_model.fit(X_train, y_train)

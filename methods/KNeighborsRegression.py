@@ -5,7 +5,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 
-def createKNNModel(X, y, verbose=False):
+def createKNRModel(X, y, verbose=False):
     """
     Create a K Nearest Neighbors regression model with the given data.
 
@@ -49,7 +49,7 @@ def createKNNModel(X, y, verbose=False):
     return knn_model
 
 
-def plotKNNModel(knn_model, X, y):
+def plotKNRModel(knn_model, X, y):
     """
     Plot the model's predictions and the expected results.
 
@@ -87,7 +87,7 @@ def plotKNNModel(knn_model, X, y):
 # y = df["PM10"]
 
 # # create model
-# knn_model = createKNNModel(X, y, verbose=True)
+# knn_model = createKNRModel(X, y, verbose=True)
 
 # # plot model
-# plotKNNModel(knn_model, X, y)
+# plotKNRModel(knn_model, X, y)

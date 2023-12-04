@@ -96,4 +96,3 @@ def plotSVRModel(svr_model, scaler, X, y):
 
 # # plot model
 # plotSVRModel(svr_model, scaler, X, y)
-

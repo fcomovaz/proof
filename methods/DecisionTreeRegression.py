@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.tree import DecisionTreeRegressor
 
 
-def createDecisionTreeRegressor(X, y, verbose=False):
+def createDTRModel(X, y, verbose=False):
     """
     Create a Decision Tree Regressor with the given data.
 
@@ -46,7 +46,7 @@ def createDecisionTreeRegressor(X, y, verbose=False):
     return dt_regressor
 
 
-def plotDecisionTreeRegressor(dt_regressor, X, y):
+def plotDTRModel(dt_regressor, X, y):
     """
     Plot the model's predictions and the expected results.
 
@@ -84,7 +84,7 @@ def plotDecisionTreeRegressor(dt_regressor, X, y):
 # y = df["PM10"]
 
 # # create model
-# dt_regressor = createDecisionTreeRegressor(X, y, verbose=True)
+# dt_regressor = createDTRModel(X, y, verbose=True)
 
 # # plot model
-# plotDecisionTreeRegressor(dt_regressor, X, y)
+# plotDTRModel(dt_regressor, X, y)

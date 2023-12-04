@@ -9,9 +9,16 @@ def createKNNModel(X, y, verbose=False):
     """
     Create a K Nearest Neighbors regression model with the given data.
 
-    @param X: The independent variables. df[['data_in1', 'data_in2', ...]]
-    @param y: The dependent variable. df['data_out']
-    @param verbose: If True, print the mean squared error of the model.
+    Parameters
+    ----------
+    X : pandas.DataFrame
+        The features of the data.
+        df[['data_in1', 'data_in2', ...]]
+    y : pandas.Series
+        The target variable of the data.
+        df['data_out']
+    verbose : bool, optional
+        Whether to print the RMSE of the model. The default is False.
     """
 
     X = X.to_numpy()
@@ -25,7 +32,7 @@ def createKNNModel(X, y, verbose=False):
     # Creating the KNN regression model
     knn_model = KNeighborsRegressor(
         n_neighbors=4
-    )
+    )  # Adjust the number of neighbors as needed
 
     # Training the model
     knn_model.fit(X_train, y_train)
@@ -46,9 +53,16 @@ def plotKNNModel(knn_model, X, y):
     """
     Plot the model's predictions and the expected results.
 
-    @param knn_model: The model to plot.
-    @param X: The independent variables. df[['data_in1', 'data_in2', ...]]
-    @param y: The dependent variable. df['data_out']
+    Parameters
+    ----------
+    knn_model : sklearn.neighbors.KNeighborsRegressor
+        The model to plot.
+    X : pandas.DataFrame
+        The features of the data.
+        df[['data_in1', 'data_in2', ...]]
+    y : pandas.Series
+        The target variable of the data.
+        df['data_out']
     """
 
     # make full predictions with all data

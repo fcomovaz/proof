@@ -9,9 +9,16 @@ def createDecisionTreeRegressor(X, y, verbose=False):
     """
     Create a Decision Tree Regressor with the given data.
 
-    @param X: The independent variables. df[['data_in1', 'data_in2', ...]]
-    @param y: The dependent variable. df['data_out']
-    @param verbose: If True, print the mean squared error of the model.
+    Parameters
+    ----------
+    X : pandas.DataFrame
+        The features of the data.
+        df[['data_in1', 'data_in2', ...]]
+    y : pandas.Series
+        The target variable of the data.
+        df['data_out']
+    verbose : bool, optional
+        Whether to print the RMSE of the model. The default is False.
     """
 
     # Splitting the data into training and testing sets
@@ -43,9 +50,16 @@ def plotDecisionTreeRegressor(dt_regressor, X, y):
     """
     Plot the model's predictions and the expected results.
 
-    @param dt_regressor: The model to plot.
-    @param X: The independent variables. df[['data_in1', 'data_in2', ...]]
-    @param y: The dependent variable. df['data_out']
+    Parameters
+    ----------
+    dt_regressor : sklearn.tree.DecisionTreeRegressor
+        The model to plot.
+    X : pandas.DataFrame
+        The features of the data.
+        df[['data_in1', 'data_in2', ...]]
+    y : pandas.Series
+        The target variable of the data.
+        df['data_out']
     """
 
     # make full predictions with all data
@@ -62,15 +76,15 @@ def plotDecisionTreeRegressor(dt_regressor, X, y):
 # ==================================================
 # =========== MINIMAL IMPLEMENTATION ===============
 # ==================================================
-# load dataframe
-df = pd.read_csv("monthly_data_csv.csv").dropna()
+# # load dataframe
+# df = pd.read_csv("monthly_data_csv.csv").dropna()
 
-# create X and y
-X = df[["RH", "TMP"]]
-y = df["PM10"]
+# # create X and y
+# X = df[["RH", "TMP"]]
+# y = df["PM10"]
 
-# create model
-dt_regressor = createDecisionTreeRegressor(X, y, verbose=True)
+# # create model
+# dt_regressor = createDecisionTreeRegressor(X, y, verbose=True)
 
-# plot model
-plotDecisionTreeRegressor(dt_regressor, X, y)
+# # plot model
+# plotDecisionTreeRegressor(dt_regressor, X, y)

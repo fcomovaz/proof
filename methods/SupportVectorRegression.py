@@ -84,15 +84,16 @@ def plotSVRModel(svr_model, scaler, X, y):
 # ==================================================
 # =========== MINIMAL IMPLEMENTATION ===============
 # ==================================================
-# load dataframe
-df = pd.read_csv("monthly_data_csv.csv").dropna()
+# # load dataframe
+# df = pd.read_csv("monthly_data_csv.csv").dropna()
 
-# create X and y
-X = df[["RH", "TMP"]]
-y = df["PM10"]
+# # create X and y
+# X = df[["RH", "TMP"]]
+# y = df["PM10"]
 
-# create model
-svr_model, scaler = createSVRModel(X, y, verbose=True)
+# # create model
+# svr_model, scaler = createSVRModel(X, y, verbose=True)
 
-# plot model
-plotSVRModel(svr_model, scaler, X, y)
+# # plot model
+# plotSVRModel(svr_model, scaler, X, y)
+

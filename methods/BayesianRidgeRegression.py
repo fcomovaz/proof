@@ -6,7 +6,7 @@ from sklearn.linear_model import BayesianRidge
 from matplotlib import pyplot as plt
 
 
-def createBRRModel(X, y, verbose=False):
+def createBRRModel(X_train, y_train, verbose=False):
     """
     Create a Bayesian Ridge Regressor model with the given data.
 
@@ -23,14 +23,14 @@ def createBRRModel(X, y, verbose=False):
     """
 
     # Split the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=60
-    )
+    # X_train, X_test, y_train, y_test = train_test_split(
+    #     X, y, test_size=0.2, random_state=60
+    # )
 
     # Standardize features
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
+    # X_test_scaled = scaler.transform(X_test)
 
     # Initialize the Bayesian Ridge Regression model
     model = BayesianRidge()
@@ -39,12 +39,12 @@ def createBRRModel(X, y, verbose=False):
     model.fit(X_train_scaled, y_train)
 
     # Predict on the test set
-    y_pred = model.predict(X_test_scaled)
+    # y_pred = model.predict(X_test_scaled)
 
     # Calculate and print the Root Mean Squared Error (RMSE) as a measure of performance
-    if verbose:
-        rmse = mean_squared_error(y_test, y_pred)
-        print(f"Root Mean Squared Error (RMSE): {rmse}")
+    # if verbose:
+        # rmse = mean_squared_error(y_test, y_pred)
+        # print(f"Root Mean Squared Error (RMSE): {rmse}")
 
     # return the model
     return model, scaler

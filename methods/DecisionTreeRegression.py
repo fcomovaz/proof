@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.tree import DecisionTreeRegressor
 
 
-def createDTRModel(X, y, verbose=False):
+def createDTRModel(X_train, y_train, verbose=False):
     """
     Create a Decision Tree Regressor with the given data.
 
@@ -22,9 +22,9 @@ def createDTRModel(X, y, verbose=False):
     """
 
     # Splitting the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=60
-    )
+    # X_train, X_test, y_train, y_test = train_test_split(
+    #     X, y, test_size=0.2, random_state=60
+    # )
 
     # Creating the Decision Tree Regressor model
     dt_regressor = DecisionTreeRegressor(
@@ -35,12 +35,12 @@ def createDTRModel(X, y, verbose=False):
     dt_regressor.fit(X_train, y_train)
 
     # Making predictions
-    y_pred = dt_regressor.predict(X_test)
+    # y_pred = dt_regressor.predict(X_test)
 
     # Evaluating the model (for regression, you might use metrics like mean squared error)
-    if verbose:
-        mse = mean_squared_error(y_test, y_pred)
-        print("Mean Squared Error:", mse)
+    # if verbose:
+    #     mse = mean_squared_error(y_test, y_pred)
+    #     print("Mean Squared Error:", mse)
 
     # Return the model
     return dt_regressor

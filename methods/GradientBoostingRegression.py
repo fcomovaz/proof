@@ -6,7 +6,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from matplotlib import pyplot as plt
 
 
-def createGBRModel(X, y, verbose=False):
+def createGBRModel(X_train, y_train, verbose=False):
     """
     Create a Gradient Boosting Regressor model with the given data.
 
@@ -23,14 +23,14 @@ def createGBRModel(X, y, verbose=False):
     """
 
     # Split the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=60
-    )
+    # X_train, X_test, y_train, y_test = train_test_split(
+    #     X, y, test_size=0.2, random_state=60
+    # )
 
     # Standardize features
     scaler = StandardScaler()
     X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
+    # X_test_scaled = scaler.transform(X_test)
 
     # Initialize the Gradient Boosting Regression model
     model = GradientBoostingRegressor(
@@ -41,12 +41,12 @@ def createGBRModel(X, y, verbose=False):
     model.fit(X_train_scaled, y_train)
 
     # Predict on the test set
-    y_pred = model.predict(X_test_scaled)
+    # y_pred = model.predict(X_test_scaled)
 
     # Calculate and print the Root Mean Squared Error (RMSE) as a measure of performance
-    if verbose:
-        rmse = mean_squared_error(y_test, y_pred)
-        print(f"Root Mean Squared Error (RMSE): {rmse}")
+    # if verbose:
+        # rmse = mean_squared_error(y_test, y_pred)
+        # print(f"Root Mean Squared Error (RMSE): {rmse}")
 
     # return the model
     return model, scaler

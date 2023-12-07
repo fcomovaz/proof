@@ -5,7 +5,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 
-def createLRModel(X, y, verbose=False):
+def createLRModel(X_train, y_train, verbose=False):
     """
     Create a Linear Regression model with the given data.
 
@@ -22,7 +22,7 @@ def createLRModel(X, y, verbose=False):
     """
 
     # Split the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
     # Create a Linear Regression model object
     model = LinearRegression()
@@ -31,12 +31,12 @@ def createLRModel(X, y, verbose=False):
     model.fit(X_train, y_train)
 
     # Make predictions using the testing set
-    y_pred = model.predict(X_test)
+    # y_pred = model.predict(X_test)
 
     # Calculate the Mean Squared Error
-    mse = mean_squared_error(y_test, y_pred)
-    if verbose:
-        print(mse)
+    # if verbose:
+    #     mse = mean_squared_error(y_test, y_pred)
+    #     print(mse)
 
     # Return the model
     return model

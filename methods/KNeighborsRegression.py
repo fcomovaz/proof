@@ -5,7 +5,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 
-def createKNRModel(X, y, verbose=False):
+def createKNRModel(X_train, y_train, verbose=False):
     """
     Create a K Nearest Neighbors regression model with the given data.
 
@@ -21,13 +21,16 @@ def createKNRModel(X, y, verbose=False):
         Whether to print the RMSE of the model. The default is False.
     """
 
-    X = X.to_numpy()
-    y = y.to_numpy()
+    # X = X.to_numpy()
+    # y = y.to_numpy()
+    X_train = X_train.to_numpy()
+    y_train = y_train.to_numpy()
 
     # Splitting the data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=60
-    )
+    # X_train, X_test, y_train, y_test = train_test_split(
+    #     X, y, test_size=0.2, random_state=60
+    # )
+
 
     # Creating the KNN regression model
     knn_model = KNeighborsRegressor(
@@ -38,12 +41,12 @@ def createKNRModel(X, y, verbose=False):
     knn_model.fit(X_train, y_train)
 
     # Making predictions
-    y_pred = knn_model.predict(X_test)
+    # y_pred = knn_model.predict(X_test)
 
     # Evaluating the model (for regression, you might use metrics like mean squared error)
-    if verbose:
-        mse = mean_squared_error(y_test, y_pred)
-        print("Mean Squared Error:", mse)
+    # if verbose:
+    #     mse = mean_squared_error(y_test, y_pred)
+    #     print("Mean Squared Error:", mse)
 
     # Return the model
     return knn_model

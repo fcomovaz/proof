@@ -16,16 +16,18 @@ def error_dataframe(y, y_pred_models):
     """
 
     # unpackage y_pred_models
-    brr = y_pred_models[0]
-    dtr = y_pred_models[1]
-    enr = y_pred_models[2]
-    gbr = y_pred_models[3]
-    knr = y_pred_models[4]
-    krr = y_pred_models[5]
-    rfr = y_pred_models[6]
-    svr = y_pred_models[7]
+    lrm = y_pred_models[0]
+    brr = y_pred_models[1]
+    dtr = y_pred_models[2]
+    enr = y_pred_models[3]
+    gbr = y_pred_models[4]
+    knr = y_pred_models[5]
+    krr = y_pred_models[6]
+    rfr = y_pred_models[7]
+    svr = y_pred_models[8]
 
     # Calculate MSE
+    mse_lrm = mean_squared_error(y, lrm)
     mse_brr = mean_squared_error(y, brr)
     mse_dtr = mean_squared_error(y, dtr)
     mse_enr = mean_squared_error(y, enr)
@@ -36,6 +38,7 @@ def error_dataframe(y, y_pred_models):
     mse_svr = mean_squared_error(y, svr)
 
     # Calculate MAE
+    mae_lrm = mean_absolute_error(y, lrm)
     mae_brr = mean_absolute_error(y, brr)
     mae_dtr = mean_absolute_error(y, dtr)
     mae_enr = mean_absolute_error(y, enr)
@@ -46,6 +49,7 @@ def error_dataframe(y, y_pred_models):
     mae_svr = mean_absolute_error(y, svr)
 
     # Calculate R2
+    r2_lrm = r2_score(y, lrm)
     r2_brr = r2_score(y, brr)
     r2_dtr = r2_score(y, dtr)
     r2_enr = r2_score(y, enr)
@@ -56,6 +60,7 @@ def error_dataframe(y, y_pred_models):
     r2_svr = r2_score(y, svr)
 
     # Calculate MAPE
+    mape_lrm = np.mean(np.abs((y - lrm) / y)) * 100
     mape_brr = np.mean(np.abs((y - brr) / y)) * 100
     mape_dtr = np.mean(np.abs((y - dtr) / y)) * 100
     mape_enr = np.mean(np.abs((y - enr) / y)) * 100
@@ -66,6 +71,7 @@ def error_dataframe(y, y_pred_models):
     mape_svr = np.mean(np.abs((y - svr) / y)) * 100
 
     # Calculate SMAPE
+    smape_lrm = np.mean(np.abs((y - lrm) / ((np.abs(y) + np.abs(lrm)) / 2))) * 100
     smape_brr = np.mean(np.abs((y - brr) / ((np.abs(y) + np.abs(brr)) / 2))) * 100
     smape_dtr = np.mean(np.abs((y - dtr) / ((np.abs(y) + np.abs(dtr)) / 2))) * 100
     smape_enr = np.mean(np.abs((y - enr) / ((np.abs(y) + np.abs(enr)) / 2))) * 100
@@ -76,6 +82,7 @@ def error_dataframe(y, y_pred_models):
     smape_svr = np.mean(np.abs((y - svr) / ((np.abs(y) + np.abs(svr)) / 2))) * 100
 
     # Calculate MSLE
+    msle_lrm = mean_squared_log_error(y, lrm)
     msle_brr = mean_squared_log_error(y, brr)
     msle_dtr = mean_squared_log_error(y, dtr)
     msle_enr = mean_squared_log_error(y, enr)
@@ -90,14 +97,15 @@ def error_dataframe(y, y_pred_models):
     error_df = pd.DataFrame(columns=errors_columns)
 
     # insert errors
-    error_df.loc[0] = ["brr", mse_brr, mae_brr, r2_brr, mape_brr, smape_brr, msle_brr]
-    error_df.loc[1] = ["dtr", mse_dtr, mae_dtr, r2_dtr, mape_dtr, smape_dtr, msle_dtr]
-    error_df.loc[2] = ["enr", mse_enr, mae_enr, r2_enr, mape_enr, smape_enr, msle_enr]
-    error_df.loc[3] = ["gbr", mse_gbr, mae_gbr, r2_gbr, mape_gbr, smape_gbr, msle_gbr]
-    error_df.loc[4] = ["knr", mse_knr, mae_knr, r2_knr, mape_knr, smape_knr, msle_knr]
-    error_df.loc[5] = ["krr", mse_krr, mae_krr, r2_krr, mape_krr, smape_krr, msle_krr]
-    error_df.loc[6] = ["rfr", mse_rfr, mae_rfr, r2_rfr, mape_rfr, smape_rfr, msle_rfr]
-    error_df.loc[7] = ["svr", mse_svr, mae_svr, r2_svr, mape_svr, smape_svr, msle_svr]
+    error_df.loc[0] = ["lrm", mse_lrm, mae_lrm, r2_lrm, mape_lrm, smape_lrm, msle_lrm]
+    error_df.loc[1] = ["brr", mse_brr, mae_brr, r2_brr, mape_brr, smape_brr, msle_brr]
+    error_df.loc[2] = ["dtr", mse_dtr, mae_dtr, r2_dtr, mape_dtr, smape_dtr, msle_dtr]
+    error_df.loc[3] = ["enr", mse_enr, mae_enr, r2_enr, mape_enr, smape_enr, msle_enr]
+    error_df.loc[4] = ["gbr", mse_gbr, mae_gbr, r2_gbr, mape_gbr, smape_gbr, msle_gbr]
+    error_df.loc[5] = ["knr", mse_knr, mae_knr, r2_knr, mape_knr, smape_knr, msle_knr]
+    error_df.loc[6] = ["krr", mse_krr, mae_krr, r2_krr, mape_krr, smape_krr, msle_krr]
+    error_df.loc[7] = ["rfr", mse_rfr, mae_rfr, r2_rfr, mape_rfr, smape_rfr, msle_rfr]
+    error_df.loc[8] = ["svr", mse_svr, mae_svr, r2_svr, mape_svr, smape_svr, msle_svr]
 
     # Return DataFrame
     return error_df

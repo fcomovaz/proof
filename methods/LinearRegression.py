@@ -70,15 +70,15 @@ def plotLRModel(model, X, y):
 # ==================================================
 # =========== MINIMAL IMPLEMENTATION ===============
 # ==================================================
-# load dataframe
-df = pd.read_csv("seasonal_data_csv.csv").dropna()
+# # load dataframe
+# df = pd.read_csv("seasonal_data_csv.csv").dropna()
 
-# create X and y
-X = df[["TMP", "RH"]]
-y = df["PM10"]
+# # create X and y
+# X = df[["TMP", "RH"]]
+# y = df["PM10"]
 
-# create model
-rf_model = createLRModel(X, y, verbose=True)
+# # create model
+# rf_model = createLRModel(X, y, verbose=True)
 
-# plot model
-plotLRModel(rf_model, X, y)
+# # plot model
+# plotLRModel(rf_model, X, y)

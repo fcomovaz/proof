@@ -93,19 +93,19 @@ def error_dataframe(y, y_pred_models):
     msle_svr = mean_squared_log_error(y, svr)
 
     # Create DataFrame
-    errors_columns = ["method", "rmse", "mae", "r2", "mape", "smape", "msle"]
+    errors_columns = ["method", "rmse", "mae", "r2", "mape", "smape"]
     error_df = pd.DataFrame(columns=errors_columns)
 
     # insert errors
-    error_df.loc[0] = ["lrm", mse_lrm, mae_lrm, r2_lrm, mape_lrm, smape_lrm, msle_lrm]
-    error_df.loc[1] = ["brr", mse_brr, mae_brr, r2_brr, mape_brr, smape_brr, msle_brr]
-    error_df.loc[2] = ["dtr", mse_dtr, mae_dtr, r2_dtr, mape_dtr, smape_dtr, msle_dtr]
-    error_df.loc[3] = ["enr", mse_enr, mae_enr, r2_enr, mape_enr, smape_enr, msle_enr]
-    error_df.loc[4] = ["gbr", mse_gbr, mae_gbr, r2_gbr, mape_gbr, smape_gbr, msle_gbr]
-    error_df.loc[5] = ["knr", mse_knr, mae_knr, r2_knr, mape_knr, smape_knr, msle_knr]
-    error_df.loc[6] = ["krr", mse_krr, mae_krr, r2_krr, mape_krr, smape_krr, msle_krr]
-    error_df.loc[7] = ["rfr", mse_rfr, mae_rfr, r2_rfr, mape_rfr, smape_rfr, msle_rfr]
-    error_df.loc[8] = ["svr", mse_svr, mae_svr, r2_svr, mape_svr, smape_svr, msle_svr]
+    error_df.loc[0] = ["lrm", mse_lrm, mae_lrm, r2_lrm, mape_lrm, smape_lrm]
+    error_df.loc[1] = ["brr", mse_brr, mae_brr, r2_brr, mape_brr, smape_brr]
+    error_df.loc[2] = ["dtr", mse_dtr, mae_dtr, r2_dtr, mape_dtr, smape_dtr]
+    error_df.loc[3] = ["enr", mse_enr, mae_enr, r2_enr, mape_enr, smape_enr]
+    error_df.loc[4] = ["gbr", mse_gbr, mae_gbr, r2_gbr, mape_gbr, smape_gbr]
+    error_df.loc[5] = ["knr", mse_knr, mae_knr, r2_knr, mape_knr, smape_knr]
+    error_df.loc[6] = ["krr", mse_krr, mae_krr, r2_krr, mape_krr, smape_krr]
+    error_df.loc[7] = ["rfr", mse_rfr, mae_rfr, r2_rfr, mape_rfr, smape_rfr]
+    error_df.loc[8] = ["svr", mse_svr, mae_svr, r2_svr, mape_svr, smape_svr]
 
     # Return DataFrame
     return error_df

@@ -25,6 +25,7 @@ def error_dataframe(y, y_pred_models):
     krr = y_pred_models[6]
     rfr = y_pred_models[7]
     svr = y_pred_models[8]
+    fga = y_pred_models[9]
 
     # Calculate MSE
     mse_lrm = mean_squared_error(y, lrm)
@@ -36,6 +37,7 @@ def error_dataframe(y, y_pred_models):
     mse_krr = mean_squared_error(y, krr)
     mse_rfr = mean_squared_error(y, rfr)
     mse_svr = mean_squared_error(y, svr)
+    mse_fga = mean_squared_error(y, fga)
 
     # Calculate MAE
     mae_lrm = mean_absolute_error(y, lrm)
@@ -47,6 +49,7 @@ def error_dataframe(y, y_pred_models):
     mae_krr = mean_absolute_error(y, krr)
     mae_rfr = mean_absolute_error(y, rfr)
     mae_svr = mean_absolute_error(y, svr)
+    mae_fga = mean_absolute_error(y, fga)
 
     # Calculate R2
     r2_lrm = r2_score(y, lrm)
@@ -58,6 +61,7 @@ def error_dataframe(y, y_pred_models):
     r2_krr = r2_score(y, krr)
     r2_rfr = r2_score(y, rfr)
     r2_svr = r2_score(y, svr)
+    r2_fga = r2_score(y, fga)
 
     # Calculate MAPE
     mape_lrm = np.mean(np.abs((y - lrm) / y)) * 100
@@ -69,6 +73,7 @@ def error_dataframe(y, y_pred_models):
     mape_krr = np.mean(np.abs((y - krr) / y)) * 100
     mape_rfr = np.mean(np.abs((y - rfr) / y)) * 100
     mape_svr = np.mean(np.abs((y - svr) / y)) * 100
+    mape_fga = np.mean(np.abs((y - fga) / y)) * 100
 
     # Calculate SMAPE
     smape_lrm = np.mean(np.abs((y - lrm) / ((np.abs(y) + np.abs(lrm)) / 2))) * 100
@@ -80,6 +85,7 @@ def error_dataframe(y, y_pred_models):
     smape_krr = np.mean(np.abs((y - krr) / ((np.abs(y) + np.abs(krr)) / 2))) * 100
     smape_rfr = np.mean(np.abs((y - rfr) / ((np.abs(y) + np.abs(rfr)) / 2))) * 100
     smape_svr = np.mean(np.abs((y - svr) / ((np.abs(y) + np.abs(svr)) / 2))) * 100
+    smape_fga = np.mean(np.abs((y - fga) / ((np.abs(y) + np.abs(fga)) / 2))) * 100
 
     # Calculate MSLE
     msle_lrm = mean_squared_log_error(y, lrm)
@@ -91,6 +97,7 @@ def error_dataframe(y, y_pred_models):
     msle_krr = mean_squared_log_error(y, krr)
     msle_rfr = mean_squared_log_error(y, rfr)
     msle_svr = mean_squared_log_error(y, svr)
+    msle_fga = mean_squared_log_error(y, fga)
 
     # Create DataFrame
     errors_columns = ["method", "rmse", "mae", "r2", "mape", "smape", "msle"]
@@ -106,6 +113,7 @@ def error_dataframe(y, y_pred_models):
     error_df.loc[6] = ["krr", mse_krr, mae_krr, r2_krr, mape_krr, smape_krr, msle_krr]
     error_df.loc[7] = ["rfr", mse_rfr, mae_rfr, r2_rfr, mape_rfr, smape_rfr, msle_rfr]
     error_df.loc[8] = ["svr", mse_svr, mae_svr, r2_svr, mape_svr, smape_svr, msle_svr]
+    error_df.loc[9] = ["fga", mse_fga, mae_fga, r2_fga, mape_fga, smape_fga, msle_fga]
 
     # Return DataFrame
     return error_df
